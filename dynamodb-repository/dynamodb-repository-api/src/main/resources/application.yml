@@ -1,13 +1,13 @@
 server:
-	port: 9000
+  port: 9000
 
 
 ---
 
 spring:
-	profiles: development
+  profiles: development
 server:
-	port: 9001
+  port: 9001
 amazon:
   dynamodb:
     endpoint: http://localhost:8000/
@@ -18,6 +18,7 @@ amazon:
 ---
 
 spring:
-	profiles: production
+  profiles: production
+
 server:
-	port: 0
+  port: 0
