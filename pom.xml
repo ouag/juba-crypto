@@ -3,24 +3,28 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.2.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+
 	<groupId>com.ouag.juba</groupId>
 	<artifactId>crypto-parent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+
 	<modules>
 		<module>dynamodb-repository</module>
 		<module>shared</module>
 	</modules>
+
 	<packaging>pom</packaging>
 
 	<name>crypto-parent</name>
 	<description>TODO ...</description>
 
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.2.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
+
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -29,7 +33,7 @@
 
 		<!-- dependancies version -->
 		<lombok.version>1.18.0</lombok.version>
-		<spring-data-releasetrain.version>Hopper-SR10</spring-data-releasetrain.version>
+
 	</properties>
 
 	<dependencyManagement>
@@ -38,13 +42,6 @@
 				<groupId>org.projectlombok</groupId>
 				<artifactId>lombok</artifactId>
 				<version>${lombok.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.data</groupId>
-				<artifactId>spring-data-releasetrain</artifactId>
-				<version>${spring-data-releasetrain.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

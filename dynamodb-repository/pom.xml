@@ -7,17 +7,33 @@
         <groupId>com.ouag.juba</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
 
     <artifactId>dynamodb-repository</artifactId>
+
+    <properties>
+        <spring-data-releasetrain.version>Hopper-SR10</spring-data-releasetrain.version>
+    </properties>
 
     <modules>
         <module>dynamodb-repository-api</module>
         <module>dynamodb-repository-services</module>
     </modules>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-commons</artifactId>
+            <version>2.0.0.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-commons-core</artifactId>
+            <version>1.4.1.RELEASE</version>
+        </dependency>
+    </dependencies>
 
 
 </project>

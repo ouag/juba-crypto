@@ -7,15 +7,28 @@
         <groupId>com.ouag.juba</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
+    <packaging>jar</packaging>
 
     <artifactId>dynamodb-repository-services</artifactId>
 
     <properties>
         <com.amazonaws.version>1.11.34</com.amazonaws.version>
-        <spring-data-dynamodb.version>4.3.1</spring-data-dynamodb.version>
-
+        <spring-data-dynamodb.version>4.5.0</spring-data-dynamodb.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-releasetrain</artifactId>
+                <version>Hopper-SR10</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
@@ -29,4 +42,5 @@
             <version>${spring-data-dynamodb.version}</version>
         </dependency>
     </dependencies>
+
 </project>

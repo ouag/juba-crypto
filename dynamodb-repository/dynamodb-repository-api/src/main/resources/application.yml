@@ -1,19 +1,24 @@
 server:
   port: 9000
 
-
 ---
-
 spring:
-  profiles: development
+  profiles: local
 server:
   port: 9001
 amazon:
   dynamodb:
     endpoint: http://localhost:8000/
   aws:
-    accesskey: key
+    accesskey: key1
     secretkey: key2
+
+---
+
+spring:
+  profiles: development
+server:
+  port: 9002
 
 ---
 
