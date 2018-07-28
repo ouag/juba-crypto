@@ -17,6 +17,8 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 import java.util.List;
 
+import static org.springframework.test.util.AssertionErrors.assertTrue;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = DynamoDBRepositoryApplication.class)
 @WebAppConfiguration
@@ -53,9 +55,8 @@ public class DynamoDBCryptoCurrencyRepositoryIT {
         List<DynamoDBCryptoCurrency> result
                 = (List<DynamoDBCryptoCurrency>) dynamoDBCryptoCurrencyRepository.findAll();
 
-        //assertTrue("Not empty", result.size() > 0);
-        //assertTrue("Contains item with expected cost",
-        //        result.get(0).getCost().equals(EXPECTED_COST));
+        assertTrue("Not empty", result.size() > 0);
+        assertTrue("Contains item with expected cost", result.get(0).getCode().equals(1L));
     }
 
 }

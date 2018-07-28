@@ -5,9 +5,9 @@ import com.ouag.juba.repositories.dynamodb.DynamoDBCryptoCurrencyRepository;
 import com.ouag.juba.repositories.dynamodb.model.DynamoDBCryptoCurrency;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 import static com.ouag.juba.repositories.dynamodb.controllers.MappingConstants.URL_ROOT;
 
@@ -19,16 +19,31 @@ public class DynamoDBCryptoCurrencyController {
     @Autowired
     DynamoDBCryptoCurrencyRepository repository;
 
-    @RequestMapping(method = RequestMethod.DELETE)
-    public String delete() {
-
+    @DeleteMapping
+    public String deleteAll() {
         repository.deleteAll();
         return "Done";
     }
 
-    @RequestMapping(method = RequestMethod.GET)
-    public Iterable<DynamoDBCryptoCurrency> get() {
+    @GetMapping
+    public Iterable<DynamoDBCryptoCurrency> getAll() {
        return repository.findAll();
+    }
+
+    @GetMapping(value = "/{id}")
+    public Optional<DynamoDBCryptoCurrency> get(@PathVariable("id") Long id) {
+        return repository.findById(String.valueOf(id));
+    }
+
+
+    @PostMapping
+    public DynamoDBCryptoCurrency create(DynamoDBCryptoCurrency dynamoDBCryptoCurrency) {
+        return repository.save(dynamoDBCryptoCurrency);
+    }
+
+    @PutMapping("/{id}")
+    public DynamoDBCryptoCurrency update(@PathVariable("id") Long id, DynamoDBCryptoCurrency dynamoDBCryptoCurrency) {
+        return repository.save(dynamoDBCryptoCurrency);
     }
 
 
